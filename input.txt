@@ -1,0 +1,12 @@
+name1
+1500
+type1
+10
+name2
+3000
+type2
+20
+name3
+4000
+type3
+5

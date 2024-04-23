@@ -1,0 +1,4 @@
+Name of kredit: name2
+Sum of kredit: 3000
+Type of valuta: type2
+Stavka: 20%
