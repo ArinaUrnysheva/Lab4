@@ -5,43 +5,43 @@
 using namespace std;
 
 class Kredit {
-	string name; //название кредита
-	int sum; //сумма кредита
-	string type_valuta; //тип валюты
-	int stavka; //ставка в %
+	string name; //РЅР°Р·РІР°РЅРёРµ РєСЂРµРґРёС‚Р°
+	int sum; //СЃСѓРјРјР° РєСЂРµРґРёС‚Р°
+	string type_valuta; //С‚РёРї РІР°Р»СЋС‚С‹
+	int stavka; //СЃС‚Р°РІРєР° РІ %
 
 public:
-	Kredit(string name, int sum, string type_valuta, int stavka) { //конструктор
+	Kredit(string name, int sum, string type_valuta, int stavka) { //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 		this->name = name;
 		this->sum = sum;
 		this->type_valuta = type_valuta;
 		this->stavka = stavka;
 	}
 
-	Kredit(const Kredit& kredit) { //конструктор копирования
+	Kredit(const Kredit& kredit) { //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 		this->name = kredit.name;
 		this->sum = kredit.sum;
 		this->type_valuta = kredit.type_valuta;
 		this->stavka = kredit.stavka;
 	}
 
-	Kredit() { //конструктор с нулями
+	Kredit() { //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РЅСѓР»СЏРјРё
 		name = "";
 		sum = 0;
 		type_valuta = "";
 		stavka = 0;
 	}
 
-	//дружественные функции для перегрузки операторов ввода-вывода
+	//РґСЂСѓР¶РµСЃС‚РІРµРЅРЅС‹Рµ С„СѓРЅРєС†РёРё РґР»СЏ РїРµСЂРµРіСЂСѓР·РєРё РѕРїРµСЂР°С‚РѕСЂРѕРІ РІРІРѕРґР°-РІС‹РІРѕРґР°
 	friend ostream& operator<<(ostream& os, const Kredit& k1);
 	friend istream& operator >>(istream& is, Kredit&);
 
-	//дружественные функции для перегрузки операторов сравнения
+	//РґСЂСѓР¶РµСЃС‚РІРµРЅРЅС‹Рµ С„СѓРЅРєС†РёРё РґР»СЏ РїРµСЂРµРіСЂСѓР·РєРё РѕРїРµСЂР°С‚РѕСЂРѕРІ СЃСЂР°РІРЅРµРЅРёСЏ
 	friend bool operator>(const Kredit& k1, const Kredit& k2);
 	friend bool operator<(const Kredit& k1, const Kredit& k2);
 };
 
-ostream& operator<<(ostream& os, const Kredit& k1) { //перегрузка оператора вывода
+ostream& operator<<(ostream& os, const Kredit& k1) { //РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° РІС‹РІРѕРґР°
 	os << "Name of kredit: " << k1.name << endl;
 	os << "Sum of kredit: " << k1.sum << endl;
 	os << "Type of valuta: " << k1.type_valuta << endl;
@@ -49,7 +49,7 @@ ostream& operator<<(ostream& os, const Kredit& k1) { //перегрузка оператора выво
 	return os;
 }
 
-istream& operator>>(istream& is, Kredit& k1) { //перегрузка оператора ввода
+istream& operator>>(istream& is, Kredit& k1) { //РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° РІРІРѕРґР°
 	is >> k1.name;
 	is >> k1.sum;
 	is >> k1.type_valuta;
@@ -57,10 +57,10 @@ istream& operator>>(istream& is, Kredit& k1) { //перегрузка оператора ввода
 	return is;
 }
 
-bool operator >(const Kredit& k1, const Kredit& k2) { //перегрузка оператора сравнения в одну сторону
+bool operator >(const Kredit& k1, const Kredit& k2) { //РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° СЃСЂР°РІРЅРµРЅРёСЏ РІ РѕРґРЅСѓ СЃС‚РѕСЂРѕРЅСѓ
 	return k1.stavka > k2.stavka;
 }
 
-bool operator <(const Kredit& k1, const Kredit& k2) { //перегрузка оператора сравнения в другую сторону
+bool operator <(const Kredit& k1, const Kredit& k2) { //РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° СЃСЂР°РІРЅРµРЅРёСЏ РІ РґСЂСѓРіСѓСЋ СЃС‚РѕСЂРѕРЅСѓ
 	return k1.stavka < k2.stavka;
 }
