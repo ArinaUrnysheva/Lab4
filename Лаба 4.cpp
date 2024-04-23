@@ -1,47 +1,28 @@
-﻿#include "Header1.h"
+#include "Header1.h"
 
 #include <vector>
 #include <list>
 #include <algorithm>
 #include <fstream>
 
-void ReadFromFile(const string& filename, Kredit& k1) { //функция чтения данных типа Kredit из файла
-	ifstream file(filename);
-	if (file.is_open()) {
-		file >> k1;
-		file.close();
-	}
-	else cerr << "Can't open this file :(" << endl;
-}
-
 void SaveToFile(const string& filename, const Kredit& k1) { //функция сохранения данных типа Kredit в файл
-	ofstream file(filename);
+	ofstream file(filename, ios::app);
 	if (file.is_open()) {
-		file << k1;
-		cout << k1;
+		file << k1 << endl;
+		cout << k1 << endl;
 		file.close();
 	}
 	else cerr << "Can't open this file :(" << endl;
 }
 
 void SaveToFile(const string& filename, const string& s) { //перегрузка функции для сохранения в файл данных типа string
-	ofstream file(filename);
+	ofstream file(filename, ios::app);
 	if (file.is_open()) {
-		file << s;
-		cout << s;
+		file << s << endl;
+		cout << s << endl;
 		file.close();
 	}
 	else cerr << "Can't open this file :(" << endl;
-}
-
-void SaveToFile(const string& filename, int& st) { //перегрузка фугкции для сохранения в файл данных типа int
-	ofstream file(filename);
-	if (file.is_open()) {
-		file << st;
-		cout << st;
-		file.close();
-	}
-	else cerr << "Can't open this file :(";
 }
 
 int main() {
@@ -54,16 +35,11 @@ int main() {
 	cout << "Enter amount of kredits: ";
 	cin >> n;
 	cout << endl;
-	/*for (int i = 0; i < n; ++i) { //цикл для чтения из файла "input.txt" данных типа Kredit
-		Kredit k;
-		ReadFromFile("input.txt", k);
-		K1.push_back(k);
-	}*/
 
 	for (size_t i = 0; i < n; ++i) {
-		Kredit k;             // Создание временного объекта Bank_deposit
-		input>>k;            // Чтение данных из файла и инициализация объекта
-		K1.push_back(k);    // Добавление объекта в конец вектора
+		Kredit k;
+		input >> k;
+		K1.push_back(k);
 	}
 
 	string s = "Before sort: ";
